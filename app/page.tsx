@@ -8,7 +8,7 @@ export default function Home() {
     <Fragment>
       <div className="min-h-dvh relative flex flex-col">
         <HeroBackground />
-        <div className="absolute inset-y-0 left-0 w-full lg:w-5xl opacity-100 mask-[linear-gradient(to_right,black_50%,transparent)]">
+        <div className="absolute inset-y-0 left-0 w-full lg:w-5xl mask-[linear-gradient(to_right,black_50%,transparent)]">
           <TelemetryTrace
             color="#2dd4bf"
             speed={0.012}
@@ -31,7 +31,7 @@ export default function Home() {
             opacity={0.3}
           />
         </div>
-        <div className="relative flex flex-col flex-1 items-start justify-center p-8 sm:p-12 lg:p-24 w-full bg-linear-90 from-slate-900 to-transparent">
+        <div className="relative flex flex-col flex-1 items-start justify-center p-8 sm:p-12 lg:p-24 w-full bg-linear-90 from-eigengrau to-transparent">
           <div className="flex flex-col gap-6 lg:gap-8">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold font-sans tracking-tight text-balance max-w-[24ch] animate-fade-up">
               The fastest setup is the one that lets you drive like{" "}
@@ -44,7 +44,7 @@ export default function Home() {
             <div className="flex items-center gap-6 animate-fade-up [animation-delay:400ms]">
               <a
                 href="#"
-                className="px-6 py-3 rounded-lg bg-primary text-[oklch(0.155_0.012_278)] font-semibold shadow-[0_0_12px_oklch(0.785_0.133_181.912/0.6),0_0_48px_oklch(0.785_0.133_181.912/0.25)] hover:opacity-90 transition-opacity focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                className="px-6 py-3 rounded-lg bg-primary text-eigengrau font-semibold shadow-[0_0_12px_oklch(0.785_0.133_181.912/0.6),0_0_48px_oklch(0.785_0.133_181.912/0.25)] hover:opacity-90 transition-opacity focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               >
                 Get early access
               </a>
@@ -56,17 +56,17 @@ export default function Home() {
         </div>
 
         <div
-          className="absolute inset-x-0 bottom-0 h-56 pointer-events-none z-10"
-          style={{
-            background:
-              "linear-gradient(to bottom, transparent 0%, oklch(0.155 0.012 278) 85%)",
-          }}
+          className="absolute inset-x-0 bottom-0 h-full pointer-events-none z-10 bg-linear-180 from-eigengrau via-transparent to-eigengrau"
+          // style={{
+          //   background:
+          //     "linear-gradient(to bottom, transparent 0%, oklch(0.155 0.012 278) 85%)",
+          // }}
         />
         <div
           className="absolute inset-x-0 bottom-0 h-px pointer-events-none z-10"
           style={{
             background:
-              "linear-gradient(to right, transparent 0%, oklch(0.785 0.133 181.912 / 0.5) 50%, transparent 100%)",
+              "linear-gradient(to right, transparent 0%, color-mix(in oklab, var(--color-primary) 50%, transparent) 50%, transparent 100%)",
           }}
         />
 
@@ -76,7 +76,7 @@ export default function Home() {
               See how it works
             </p>
             <div className="relative w-px h-10 bg-white/10 overflow-hidden">
-              <div className="absolute inset-x-0 top-0 h-full bg-white/50 animate-scan-line origin-top" />
+              <div className="absolute inset-0 bg-white/50 animate-scan-line origin-top" />
             </div>
           </div>
         </div>
