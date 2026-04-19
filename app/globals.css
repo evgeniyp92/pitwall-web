@@ -5,10 +5,11 @@
   --color-primary: oklch(0.785 0.133 181.912);
   --color-secondary: oklch(0.709 0.17 26.471);
   --color-tertiary: oklch(0.837 0.164 84.429);
+  --color-eigengrau: oklch(0.203 0.014 285.102);
 }
 
 body {
-  background: oklch(0.155 0.012 278);
+  background: var(--color-eigengrau);
   color: ghostwhite;
 }
 
