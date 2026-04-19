@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function HeroBackground() {
   return (
-    <div className="absolute inset-0 -z-10">
+    <div className="absolute inset-0 -z-20">
       <Image
         src={hero}
         alt=""

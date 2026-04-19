@@ -1,25 +1,13 @@
 @import "tailwindcss";
 
-:root {
-  --background: oklch(0.90 0.003 91);
-  --foreground: oklch(0.155 0.012 278);
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-nudica);
-  --font-mono: var(--font-nudica);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: oklch(0.155 0.012 278);
-    --foreground: oklch(0.90 0.003 91);
-  }
+  --color-primary: oklch(0.785 0.133 181.912);
+  --color-secondary: oklch(0.709 0.17 26.471);
+  --color-tertiary: oklch(0.837 0.164 84.429);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: oklch(0.155 0.012 278);
+  color: ghostwhite;
 }
