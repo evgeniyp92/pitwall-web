@@ -22,10 +22,13 @@ function generatePoints(wave: Waveform): string {
     // parameterized by h instead of wave:
     //   h.amplitude * Math.sin(h.phase + 2 * Math.PI * h.frequency * progress)
     let offset = 0;
+    for (const h of wave.harmonics) {
+      offset +=
+        h.amplitude * Math.sin(h.phase + 2 * Math.PI * h.frequency * progress);
+    }
     const y = wave.baseline + offset;
     arr.push(`${x.toFixed(1)},${y.toFixed(1)}`);
   }
-  console.log(arr.join(" "));
   return arr.join(" ");
 }
 
