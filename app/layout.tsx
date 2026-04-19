@@ -1,15 +1,71 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import localFont from "next/font/local";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const nudica = localFont({
+  variable: "--font-nudica",
+  src: [
+    {
+      path: "../media/fonts/nudica-thin-webfont.woff2",
+      weight: "100",
+      style: "normal",
+    },
+    {
+      path: "../media/fonts/nudica-thinitalic-webfont.woff2",
+      weight: "100",
+      style: "italic",
+    },
+    {
+      path: "../media/fonts/nudica-ultralight-webfont.woff2",
+      weight: "200",
+      style: "normal",
+    },
+    {
+      path: "../media/fonts/nudica-ultralightitalic-webfont.woff2",
+      weight: "200",
+      style: "italic",
+    },
+    {
+      path: "../media/fonts/nudica-light-webfont.woff2",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../media/fonts/nudica-lightitalic-webfont.woff2",
+      weight: "300",
+      style: "italic",
+    },
+    {
+      path: "../media/fonts/nudica-regular-webfont.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../media/fonts/nudica-regularitalic-webfont.woff2",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../media/fonts/nudica-medium-webfont.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../media/fonts/nudica-mediumitalic-webfont.woff2",
+      weight: "500",
+      style: "italic",
+    },
+    {
+      path: "../media/fonts/nudica-bold-webfont.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../media/fonts/nudica-bolditalic-webfont.woff2",
+      weight: "600",
+      style: "italic",
+    },
+  ],
 });
 
 export const metadata: Metadata = {
@@ -23,10 +79,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang="en" className={`${nudica.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
