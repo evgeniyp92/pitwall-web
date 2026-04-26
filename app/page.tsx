@@ -10,7 +10,7 @@ export default function Home() {
         <HeroBackground />
         <div className="relative flex flex-col flex-1 items-start justify-center p-8 sm:p-12 lg:p-24 w-full bg-linear-90 from-eigengrau to-transparent">
           <div className="flex flex-col gap-6 lg:gap-8">
-            <div className="bg-primary w-fit px-4 py-3 lg:px-8 lg:py-6 -rotate-2 drop-shadow-black drop-shadow-[4px_4px_0px_oklch(0_0_0/0.25)] lg:drop-shadow-[12px_12px_0px_oklch(0_0_0/0.25)] z-50">
+            <div className="bg-primary w-fit px-4 py-3 lg:px-8 lg:py-6 md:-rotate-2 drop-shadow-black drop-shadow-[4px_4px_0px_oklch(0_0_0/0.25)] lg:drop-shadow-[12px_12px_0px_oklch(0_0_0/0.25)] z-50">
               <h1 className="text-3xl lg:text-9xl uppercase font-bold tracking">
                 Pitwall
               </h1>

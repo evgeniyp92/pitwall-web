@@ -18,6 +18,7 @@ const pillars = [
     detail:
       "Generic setups optimize for someone else's driving. Your brake release, your throttle progression, your corner-entry aggression are yours alone — Pitwall reads your traces and prescribes changes that work with your inputs, not against them.",
     color: "text-primary",
+    border: "border-primary/30",
     background: "bg-primary/50",
   },
   {
@@ -27,6 +28,7 @@ const pillars = [
     detail:
       'Most setup advice treats symptoms: "understeer? stiffen the front bar." That\'s a gamble. Pitwall traces each symptom back to its mechanism — front dampers not recovering on trail-brake release, say — and prescribes the exact fix. Fewer iterations, deeper understanding.',
     color: "text-secondary",
+    border: "border-secondary/30",
     background: "bg-secondary/50",
   },
   {
@@ -36,6 +38,7 @@ const pillars = [
     detail:
       "Qualifying pace is a single flawless lap. Race pace is thirty consistent ones. Setups tuned for a hot lap chew tires, punish your wrists, and drop you mid-grid by lap fifteen. Pitwall optimizes for stint-long stability — the pace that wins races.",
     color: "text-tertiary",
+    border: "border-tertiary/30",
     background: "bg-tertiary/50",
   },
 ];
@@ -168,34 +171,36 @@ export default function Explainer() {
               group
               flex
               flex-col
-              items-center
+              gap-y-5
               text-left
-              px-6
-              py-6
+              p-5
               outline-none
               focus-visible:bg-slate-500/40
+              w-full
               max-w-96
               md:w-72
               md:h-80
-              md:p-4
+              md:gap-y-0
               md:justify-between
-              md:py-8
+              md:p-6
               bg-slate-800
-              drop-shadow-[2px_2px_0px_oklch(0.785_0.133_181.912)] lg:drop-shadow-[6px_6px_0px_oklch(0.785_0.133_181.912)]
               `}
             >
-              <div className={`grid grid-rows-2 items-center justify-center`}>
+              <div>
                 <div
-                  className={`font-mono uppercase font-bold ${item.color} flex items-center gap-x-2 justify-center`}
+                  className={`flex items-center gap-x-2 font-mono font-bold uppercase ${item.color}`}
                 >
-                  <div className="text-xs">{item.icon}</div>{" "}
-                  <p className="text-xl">{item.label}</p>
+                  <span className="text-sm leading-none">{item.icon}</span>
+                  <span className="text-base leading-none tracking-[0.15em]">
+                    {item.label}
+                  </span>
                 </div>
-                <div className={`text-xs text-neutral-200 text-center -mt-4`}>
-                  {item.desc}
-                </div>
+                <p className="mt-2 text-xs text-neutral-400">{item.desc}</p>
               </div>
-              <p className={`text-pretty text-sm text-neutral-100`}>
+
+              <hr className={`border-t ${item.border}`} />
+
+              <p className="text-pretty text-sm leading-relaxed text-neutral-100">
                 {item.detail}
               </p>
             </div>
