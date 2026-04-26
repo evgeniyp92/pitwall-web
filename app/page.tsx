@@ -15,7 +15,7 @@ export default function Home() {
                 Pitwall
               </h1>
             </div>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold font-sans tracking-tight text-balance max-w-[24ch] animate-fade-up">
+            <h2 className="text-2xl sm:text-3xl lg:text-6xl font-semibold font-sans tracking-tight text-balance max-w-[24ch] animate-fade-up">
               The fastest setup is the one that lets you drive like{" "}
               <em className="text-primary uppercase">you</em>
             </h2>

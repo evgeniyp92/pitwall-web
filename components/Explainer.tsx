@@ -1,5 +1,8 @@
 import TelemetryTrace from "@/components/TelemetryTrace";
 
+// TODO: Rewrite this component so that it presents Editorial Cards on desktop
+// viewports and shows an Accordion on mobile viewports
+
 const topStats = [
   { label: "Session", value: "Race", color: "text-primary" },
   { label: "Track", value: "Spa-Francorchamps", color: "text-white" },
@@ -15,6 +18,7 @@ const pillars = [
     detail:
       "Generic setups optimize for someone else's driving. Your brake release, your throttle progression, your corner-entry aggression are yours alone — Pitwall reads your traces and prescribes changes that work with your inputs, not against them.",
     color: "text-primary",
+    background: "bg-primary/50",
   },
   {
     icon: "△",
@@ -23,6 +27,7 @@ const pillars = [
     detail:
       'Most setup advice treats symptoms: "understeer? stiffen the front bar." That\'s a gamble. Pitwall traces each symptom back to its mechanism — front dampers not recovering on trail-brake release, say — and prescribes the exact fix. Fewer iterations, deeper understanding.',
     color: "text-secondary",
+    background: "bg-secondary/50",
   },
   {
     icon: "◎",
@@ -31,6 +36,7 @@ const pillars = [
     detail:
       "Qualifying pace is a single flawless lap. Race pace is thirty consistent ones. Setups tuned for a hot lap chew tires, punish your wrists, and drop you mid-grid by lap fifteen. Pitwall optimizes for stint-long stability — the pace that wins races.",
     color: "text-tertiary",
+    background: "bg-tertiary/50",
   },
 ];
 
@@ -134,15 +140,17 @@ export default function Explainer() {
 
         {/* Central headline block */}
         <div className="text-center">
-          <p className="mb-5 font-mono text-[0.6875rem] uppercase tracking-[3px] text-primary sm:text-[0.625rem]">
-            ◈ Pitwall Race Engineer ◈
-          </p>
+          {/*<p className="mb-5 font-mono text-[0.6875rem] uppercase tracking-[3px] text-primary sm:text-[0.625rem]">*/}
+          {/*  ◈ Pitwall Race Engineer ◈*/}
+          {/*</p>*/}
           <h2 className="mb-5 text-[clamp(32px,5vw,58px)]/[1.1] font-semibold tracking-tight text-balance text-white">
-            Your telemetry.{" "}
-            <span className="text-neutral-500">Your handling.</span>
+            <span className="italic">Your </span> telemetry.{" "}
+            <span className="text-neutral-500">
+              <span className="italic">Your</span> handling.
+            </span>
             <br className="max-sm:hidden" />{" "}
             <span className="bg-[linear-gradient(135deg,var(--color-primary),color-mix(in_oklab,var(--color-primary)_80%,transparent))] bg-clip-text text-transparent">
-              Your race engineer.
+              <span className="italic">Your</span> race engineer.
             </span>
           </h2>
           <p className="mx-auto max-w-[44ch] text-base text-pretty text-white/70 sm:text-lg">
@@ -152,36 +160,44 @@ export default function Explainer() {
         </div>
 
         {/* Pillar cards */}
-        <div className="flex w-full flex-col gap-px overflow-hidden rounded-xl sm:w-auto sm:flex-row sm:overflow-visible">
+        <div className="flex md:w-full flex-col md:flex-row gap-px md:p-4 w-auto overflow-visible items-center justify-center md:gap-x-8 gap-y-8">
           {pillars.map((item) => (
             <div
               key={item.label}
-              tabIndex={0}
-              className="group relative flex flex-col items-start bg-slate-500/25 px-6 py-4 text-left outline-none focus-visible:bg-slate-500/40 sm:min-w-60 sm:flex-1 sm:items-center sm:text-center sm:first:rounded-l-xl sm:last:rounded-r-xl"
+              className={`
+              group
+              flex
+              flex-col
+              items-center
+              text-left
+              px-6
+              py-6
+              outline-none
+              focus-visible:bg-slate-500/40
+              max-w-96
+              md:w-72
+              md:h-80
+              md:p-4
+              md:justify-between
+              md:py-8
+              bg-slate-800
+              drop-shadow-[2px_2px_0px_oklch(0.785_0.133_181.912)] lg:drop-shadow-[6px_6px_0px_oklch(0.785_0.133_181.912)]
+              `}
             >
-              <div
-                className={`mb-1.5 font-mono text-lg sm:text-sm ${item.color}`}
-              >
-                {item.icon}
+              <div className={`grid grid-rows-2 items-center justify-center`}>
+                <div
+                  className={`font-mono uppercase font-bold ${item.color} flex items-center gap-x-2 justify-center`}
+                >
+                  <div className="text-xs">{item.icon}</div>{" "}
+                  <p className="text-xl">{item.label}</p>
+                </div>
+                <div className={`text-xs text-neutral-200 text-center -mt-4`}>
+                  {item.desc}
+                </div>
               </div>
-              <div
-                className={`mb-1 font-mono text-xs uppercase tracking-[1.5px] sm:text-[0.625rem] ${item.color}`}
-              >
-                {item.label}
-              </div>
-              <div className="text-sm text-white/60 sm:text-xs">
-                {item.desc}
-              </div>
-              <p className="mt-3 text-sm text-pretty text-white/75 sm:hidden">
+              <p className={`text-pretty text-sm text-neutral-100`}>
                 {item.detail}
               </p>
-              <div
-                role="tooltip"
-                className="pointer-events-none absolute top-full left-1/2 z-20 mt-3 w-72 -translate-x-1/2 translate-y-1 rounded-lg bg-[oklch(0.22_0.012_278)] px-4 py-3 text-left text-sm text-white/85 opacity-0 shadow-[0_12px_32px_oklch(0_0_0/0.5)] transition-[opacity,translate] duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100 max-sm:hidden"
-              >
-                <p className="text-pretty">{item.detail}</p>
-                <div className="absolute left-1/2 bottom-full size-3 -translate-x-1/2 translate-y-1/2 rotate-45 bg-[oklch(0.22_0.012_278)]" />
-              </div>
             </div>
           ))}
         </div>
